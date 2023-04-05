@@ -1,0 +1,133 @@
+---
+import { getCollection } from 'astro:content'
+import { pubs } from '../../src/content/cv/pubs'
+import { work_experience } from '../content/cv/workexperience'
+import Layout from '../layouts/BlogPost.astro'
+import { education } from '../content/cv/education'
+import {skills} from '../content/cv/skills'
+const posts = (await getCollection('blog')).map((post) => {
+  return {
+    ...post,
+    url: `/posts/${post.slug}`
+  }
+})
+---
+<Layout
+  title=''
+  description='Clinical scientist keen on using my expertise in clinical genetics and programming skills to lead a team of scientists and developers.'
+  pubDate={new Date('2023-04-01')}
+  updatedDate={new Date('2023-04-04')}
+  heroImage={''}
+
+>
+<!DOCTYPE html>
+<html lang='en'>
+  <head> </head>
+  <body
+	class="text-black dark:text-white"
+  >
+    <main class=' text-black dark:text-white flex flex-grow h-screen p-2'>
+      <section>
+        <div
+          class="flex flex-col border-b mb-2"
+        >
+        <h1 class="text-3xl font-bold text-black dark:text-white">
+          Derick Hoskinson, PhD
+        </h1>
+          <p
+            class="text-base italic"
+          >
+Clinical scientist keen on using my expertise in clinical genetics and programming skills to lead a team of scientists and developers.
+          </p>
+        </div>
+        <div
+          class="mb-2 border-b"
+        >
+          <p class='text-2xl font-bold'>
+            Work Experience
+          </p>
+          {
+            work_experience.map((job) => (
+              <div
+                class='mb-2'
+              >
+                <h2 class='text-xl font-bold text-black dark:text-white'>{job.institution}</h2>
+                <div class='flex justify-between'>
+                  <h3 class='text-lg font-bold italic text-black dark:text-white'>{job.title}</h3>
+                  <p class='text-base font-bold'>
+                    {job.startDate} - {job.endDate}
+                  </p>
+                </div>
+                <p>
+                  {job.duties.map((duty) => (
+                    <li
+                    class='indent-2'
+                    >{duty.duty}</li>
+                  ))}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+        <div
+          class="mb-2 border-b"
+        >
+          <h2 class='text-xl font-bold text-black dark:text-white'>Education</h2>
+          {education.map((edu)=> (
+            <div>
+                              <div class='flex justify-between'>
+
+              <h3
+                                class='text-black dark:text-white text-xl font-bold'
+              >
+                {edu.institution}
+                </h3>
+                <p class='text-base font-bold'>
+                  {edu.startDate} - {edu.endDate}
+                </p>
+                </div>
+                <p
+                class='text-base italic'
+                >{edu.degree}</p>
+              </div>
+          ))}
+        </div>
+        <div>
+          {
+            pubs.map((pub) => (
+              <div>
+                <h3
+                  class='text-xl font-bold italic text-black dark:text-white'
+                >{pub.title}</h3>
+                <p>{pub.authors}</p>
+              <div class="flex gap-2">
+                <p>{pub.journal}</p>
+                <p>{pub.edition}</p>
+                <p>{pub.year}</p>
+
+
+              </div>
+              </div>
+            ))
+          }
+        </div>
+        <div class="flex flex-col gap-2">
+           <h1 class="text 2xl font-bold text-black dark:text-white">
+            Skills
+          </h1>
+         <div class="flex gap-2 ">
+          {skills.map((skill)=>(
+            <div class="flex flex-row border p-1">
+              <h3 class="text-xs font-bold text-black dark:text-white">{skill.skill}</h3>
+              </div>
+          ))}</div>
+
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+</Layout>
+
+
+

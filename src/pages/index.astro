@@ -10,12 +10,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body
+		class="dark:bg-slate-800 text-black dark:text-white"
+	>
 		<Header title={SITE_TITLE} />
 		<main
 		class="flex flex-grow h-screen flex-col items-center justify-center text-center"
 		>
-<h1 class="text-4xl font-bold">It's Me</h1>
+<h1 class="text-4xl font-bold text-black dark:text-white">It's Me</h1>
 
 		</main>
 		<Footer />

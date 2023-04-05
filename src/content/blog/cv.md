@@ -2,7 +2,9 @@
 title: 'Curriculum Vitae'
 description: 'My CV'
 pubDate: "April 03 2023"
-heroImage: ''
+heroImage: '/cv.png'
+tags:
+- CV
 
 ---
 
