@@ -7,11 +7,18 @@ export async function getStaticPaths() {
 	return posts.map((post) => ({
 		params: { slug: post.slug },
 		props: post,
+		tags: post.data.tags.map((tag) => tag.toLowerCase()),
 	}));
 }
 type Props = CollectionEntry<'blog'>;
 
-const post = Astro.props;
+
+const post= Astro.props;
+const tags = post.data.tags.map((tag) => tag);
+console.log(tags);
+
+
+
 const { Content } = await post.render();
 ---
 
