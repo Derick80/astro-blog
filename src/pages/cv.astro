@@ -5,6 +5,9 @@ import { work_experience } from '../content/cv/workexperience'
 import Layout from '../layouts/BlogPost.astro'
 import { education } from '../content/cv/education'
 import {skills} from '../content/cv/skills'
+import BaseHead from '../components/BaseHead.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import Header from '../components/Header.astro'
 const posts = (await getCollection('blog')).map((post) => {
   return {
     ...post,
@@ -12,21 +15,19 @@ const posts = (await getCollection('blog')).map((post) => {
   }
 })
 ---
-<Layout
-  title=''
-  description='Clinical scientist keen on using my expertise in clinical genetics and programming skills to lead a team of scientists and developers.'
-  pubDate={new Date('2023-04-01')}
-  updatedDate={new Date('2023-04-04')}
-  heroImage={''}
 
->
 <!DOCTYPE html>
 <html lang='en'>
-  <head> </head>
-  <body
-	class=""
-  >
-    <main class=' text-black dark:text-white flex flex-grow h-screen p-2'>
+  <head>
+
+   <BaseHead
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION}
+    />
+  </head>
+  <body class='dark:bg-slate-800 text-black dark:text-white'>
+    <Header />
+    <main class='flex flex-grow h-screen md:justify-center w-full'>
       <section>
         <div
           class="flex flex-col border-b mb-2"
@@ -127,7 +128,6 @@ Clinical scientist keen on using my expertise in clinical genetics and programmi
     </main>
   </body>
 </html>
-</Layout>
 
 
 

@@ -1,74 +1,66 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import BaseHead from '../../components/BaseHead.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
+import { getCollection } from 'astro:content'
+import FormattedDate from '../../components/FormattedDate.astro'
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+)
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-
-	</head>
-	<body
-			class="dark:bg-slate-800 text-black dark:text-white"
-
-	>
-		<Header />
-		<main
-			class="flex flex-grow h-screen"
-		>
-			<section
-				class="text-black dark:text-white"
-
-			>
-				<div
-					class="text-black dark:text-white"
-
-				>
-					{
-						posts.map((post) => (
-							<div
-								class="flex flex-col h-full w-full border"
-							>
-								<div
-								class='flex flex-row gap-2'><FormattedDate date={post.data.pubDate} />
-								<a href={`/blog/${post.slug}/`}>{post.data.title}</a></div>
-								<div class="flex flex-row gap-2">
-									<div class="h-20 w-20">
-									{post.data.heroImage && (
-										<img src={post.data.heroImage}
-										alt={post.data.title}
-										class="object-cover h-full w-full"
-									/>
-									)}
-									</div>
-									<div>
-										{post.data.description}
-										{
-											post.data.tags.map((tag) => (
-												<a href={`/blog/tags/${tag}/`}
-
-												class=' border-2 p-1 w-fit'
-												>{tag}</a>
-											))
-
-										}
-										</div>
-								</div>
-							</div>
-						))
-					}
-				</div>
-			</section>
-		</main>
-		<Footer />
-	</body>
+<html lang='en'>
+  <head>
+    <BaseHead
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION}
+    />
+  </head>
+  <body class='dark:bg-slate-800 text-black dark:text-white'>
+    <Header />
+    <main class='flex flex-grow h-screen'>
+      <section class='text-black dark:text-white'>
+        <div class='text-black dark:text-white flex flex-col gap-4'>
+          {
+            posts.map((post) => (
+              <div class='flex flex-col h-full w-full border p-1'>
+                <div class='flex flex-row gap-2 justify-between'>
+                  <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                  <FormattedDate date={post.data.pubDate} />
+                </div>
+                <div class='flex flex-row gap-2'>
+                  <div class='h-20 w-20'>
+                    {post.data.heroImage && (
+                      <img
+                        src={post.data.heroImage}
+                        alt={post.data.title}
+                        class='object-scale-down h-full w-full'
+                      />
+                    )}
+                  </div>
+                  <div class='flex flex-col gap-2'>
+                    {post.data.description}
+                    <div class='flex flex-row gap-2'>
+                      {post.data.tags.map((tag) => (
+                        <a
+                          href={`/blog/tags/${tag}/`}
+                          class=' border-2 p-1 w-fit'
+                        >
+                          {tag}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>

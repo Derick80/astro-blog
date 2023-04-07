@@ -3,9 +3,12 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import type { CollectionEntry } from 'astro:content'
 
-const {tags} = Astro.props;
-console.log(tags, 'tags');
+type Props = CollectionEntry<'blog'>['data'];
+
+const { tags } = Astro.props;
+
 
 ---
 
@@ -22,7 +25,15 @@ console.log(tags, 'tags');
 		class="flex flex-grow h-screen flex-col items-center justify-center text-center"
 		>
 <h1 class="text-4xl font-bold text-black dark:text-white">It's Me
-
+{
+	tags?.map((tag) => {
+		return (
+			<span class="text-4xl font-bold text-black dark:text-white">
+				{tag}
+			</span>
+		);
+	})
+}
 
 </h1>
 

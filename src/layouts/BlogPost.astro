@@ -1,59 +1,78 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import type { CollectionEntry } from 'astro:content'
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import FormattedDate from '../components/FormattedDate.astro'
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data']
 
-const { title, description, pubDate, updatedDate, heroImage,tags } = Astro.props;
-
-
+const { title, description, pubDate, updatedDate, heroImage, tags } =
+  Astro.props
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
+<html lang='en'>
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+    />
+  </head>
 
-	</head>
+  <body class='flex flex-col dark:bg-slate-800 text-black dark:text-white'>
+    <Header />
+    <div class='flex flex-row w-full'>
+      <main class='flex-grow'>
+        <article class='flex flex-col gap-4 p-4'>
 
-	<body
-	class="flex flex-col dark:bg-slate-800"
-	>
-		<Header />
-	<div class="flex flex-row w-full">
-
-		<main
-		class="flex-grow"
-		>
-			<article>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-				<div class="flex flex-row gap-2 justify-between">
-					<h1 class="title">{title}</h1>
-				<FormattedDate date={pubDate} />
+          <div class='flex flex-row gap-2 justify-between'>
+            <h1 class='text-black dark:text-white title'>{title}</h1>
+            <FormattedDate date={pubDate} />
+            {
+              updatedDate && (
+                <div class='last-updated-on'>
+                  Last updated on <FormattedDate date={updatedDate} />
+                </div>
+              )
+            }
+          </div>
+          <hr />
+          <div class='flex flex-row gap-2 items-center justify-around'>
+			     {
+            heroImage && (
+             <div
+			 	class='w-24 h-24 '
+			 >
+				 <img
+				 class='w-full h-full object-contain'
+                // 		width={720}
+                // height={360}
+                src={heroImage}
+                alt=''
+              />
+			  </div>
+            )
+          }
+            <div class='flex flex-row gap-2'>
 				{
-					updatedDate && (
-						<div class="last-updated-on">
-							Last updated on <FormattedDate date={updatedDate} />
-						</div>
-					)
-				}
-				</div>
-				<hr />
-				<div class="flex flex-row gap-2">
-					{tags?.map((tag) => (
-						<a href={`/tags/${tag}`} class="flex border-2 p-1 w-fit">
-							{tag}
-						</a>
-					))}
-				</div>
-					<hr />
-				<slot />
+              tags?.map((tag) => (
+                <a
+                  href={`/tags/${tag}`}
+                  class='flex border-2 p-1 w-fit h-fit'
+                >
+                  {tag}
+                </a>
+              ))
+            }
+			</div>
+          </div>
+          <hr />
+          <slot
 
-			</article>
-		</main>
-	</div>
-		<Footer />
-	</body>
+		  />
+        </article>
+      </main>
+    </div>
+    <Footer />
+  </body>
 </html>
