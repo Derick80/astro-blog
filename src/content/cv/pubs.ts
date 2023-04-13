@@ -10,7 +10,8 @@ export const pubs = [
     ],
     edition: `2020 Feb 5;3(2):e200202. PMID: 32108894; PMCID: PMC7049088.`,
     type: 'published',
-    url: `https://doi.org/10.1001/jamanetworkopen.2020.0202`
+    url: `https://doi.org/10.1001/jamanetworkopen.2020.0202`,
+    pdf: `https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2762022`
   },
 
   {

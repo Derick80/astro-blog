@@ -1,0 +1,112 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { CollectionEntry, getCollection } from 'astro:content';
+
+type Props = CollectionEntry<'projects'>['data']
+
+const projects = (await getCollection('projects')).map((project) => project.data).sort((a, b) => {
+    return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+});
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body
+		class="dark:bg-slate-800 text-black dark:text-white"
+	>
+		<Header title={SITE_TITLE} />
+		<main
+		class="flex flex-grow h-screen flex-col
+        w-full
+        items-center  text-center"
+		>
+<ul class="flex  flex-col items-center">
+    {projects.map((project) => (
+        <li class="flex flex-col border-2 w-full gap-2 items-start">
+            <a href={project.projectLink}
+            rel="noopener noreferrer"
+            class="text-2xl underline ">{project.title}</a>
+
+          <div class="flex flex-row
+            w-full gap-2
+          ">
+             <div class="w-fit ">
+            <img
+                src={project.heroImage}
+                alt={project.title}
+                class="flex w-32 h-32 object-cover"
+            />
+
+            </div>
+           <div class="flex flex-col w-full gap-2 p-1 items-start">
+             <p
+
+                class='text-sm '
+             >{project.description}
+
+                </p>
+                <h3 class="text-sm underline">Technologies:</h3>
+               <p
+               class="flex flex-row gap-2"
+               >
+                 {project.tags.map((tag) => (
+                    <span class="p-1 text-xs border w-fit h-fit text-gray-500">{tag}</span>
+                ))}
+                </p>
+                <h3 class="text-sm underline">Implementations:</h3>
+                {project.implementations.map((
+                    item: string
+                )=> (
+
+                    <p
+                    class="text-sm"
+                    >{item}</p>
+                ))}
+                </div>
+
+                </div>
+                <div class="flex flex-row w-full gap-2 border-t-2 p-2">
+                    <div
+                        class="flex flex-row  w-full gap-2 items-center"
+                    >
+                        <p class="text-sm underline">Code:</p>
+                        <a
+                         target='_blank'
+          rel='noopener noreferrer'
+                        href={project.githubLink} class="text-blue-500">Github</a>
+
+                        </div>
+                       <div
+                          class="flex flex-row  w-full gap-2 items-center"
+                       >
+                         <p class="text-sm underline">Live URL:</p>
+                        <a
+                         target='_blank'
+          rel='noopener noreferrer'
+                        href={project.projectLink} class="text-blue-500">Live</a>
+                        </div>
+                      <div class="flex flex-row w-full gap-2 items-center">
+
+                        <p class="text-sm underline">Date:
+
+                        </p>
+                      <p class="text-sm">
+                           {project.pubDate}</p>
+
+                        </div>
+                    </div>
+        </li>
+    ))}
+</ul>
+
+		</main>
+		<Footer />
+	</body>
+</html>

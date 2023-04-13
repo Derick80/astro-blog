@@ -2,14 +2,15 @@
 title: 'Deploying a small app to Fly.io'
 description: 'Vercel is so easy but the loading times are a bit slow. Fly.io is a bit more complicated but the loading times seem much faster.'
 pubDate: 'April 6, 2023'
-heroImage: '/todoapp.png'
 tags: ['Remix', 'Deployments', 'Coding']
 ---
 
-# Deploying a small app to Fly.io
+## Deploying a small app to Fly.io
+
 I wrote a small Todo app using remix-run and a postgres database.  I have been deploying my sites to Vercel for a while now and I have been very happy with it.  However, I have been noticing that the loading times are a bit slow.  I decided to try out Fly.io and see how it compares.
 
 ## Fly.io
+
 Fly.io is a bit more complicated than Vercel.  You have to create a Dockerfile and a fly.toml file.  The Dockerfile is pretty simple.  It just copies the files from the build directory to the Docker image.  The fly.toml file is a bit more complicated.  It has a bunch of settings for the app.  I had to look up the documentation to figure out what some of the settings did.  I also had to figure out how to populate my database with my Prisma schema.  I ended up using the `fly ssh console` command to get a shell on the server and then running `npx prisma db push` to populate the database. Like below:
 
 ```
@@ -22,4 +23,5 @@ npx prisma db push
 ```
 
 ## Vercel
+
 Vercel is so easy.  You just push your code to Github and it deploys.  You can also deploy from your local machine.  I think I can also do this with Fly.io but I haven't tried it yet.  In reality I should probably try to port my large app to Fly.io for a direct comparison but it might be difficult.  Although this time around the smaller app was quite easy so perhaps I will try it.
