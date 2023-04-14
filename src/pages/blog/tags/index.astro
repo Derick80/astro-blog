@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from "../../components/BaseLayout.astro";
+import BaseLayout from '../../../components/BaseLayout.astro';
+
 
 const pageTitle = "Tag Index";
 
@@ -18,7 +19,7 @@ console.log(tags, "tags");
 
         {tags.map((tag) => (
             <li>
-                <a href={`/tags/${tag}`}>{tag}</a>
+                <a href={`/${tag}`}>{tag}</a>
             </li>
         ))}
 

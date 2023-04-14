@@ -9,6 +9,9 @@ import { getCollection } from 'astro:content'
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 )
+
+const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
+console.log(tags, "tags");
 ---
 
 <!DOCTYPE html>
@@ -23,6 +26,18 @@ const posts = (await getCollection('blog')).sort(
     <Header />
     <main class='flex flex-grow h-screen'>
       <section class='text-black dark:text-white'>
+        <div class="flex gap-2 flex-wrap text-xs mb-4">
+          {
+          tags.map((tag) => (
+            <a
+              href={`/blog/tags/${tag}/`}
+              class='border-2 rounded-md p-2 w-fit'
+            >
+              {tag}
+            </a>
+          ))
+        }
+        </div>
         <div class='text-black dark:text-white flex flex-col gap-4'>
           {
             posts.map((post) => (
@@ -44,14 +59,23 @@ const posts = (await getCollection('blog')).sort(
                   <div class='flex flex-col gap-2'>
                     {post.data.description}
                     <div class='flex flex-row gap-2'>
-                      {post.data.tags.map((tag) => (
-                        <a
-                          href={`/blog/tags/${tag}/`}
-                          class=' border-2 p-1 w-fit'
-                        >
-                          {tag}
-                        </a>
-                      ))}
+                           <div class='flex flex-col gap-2'>
+               <p class='text-sm text-gray-500 underline'>
+              Tags
+              </p>
+				<div class="flex flex-row gap-2">
+          {
+              post.data.tags?.map((tag) => (
+                <a
+                  href={`/blog/tags/${tag}`}
+                  class='flex border-2 rounded-md p-1 w-fit h-fit text-sm'
+                >
+                  {tag}
+                </a>
+              ))
+            }
+        </div>
+			</div>
                     </div>
                   </div>
                 </div>

@@ -54,17 +54,22 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
 			  </div>
             )
           }
-            <div class='flex flex-row gap-2'>
-				{
+            <div class='flex flex-col gap-2'>
+               <p class='text-sm text-gray-500 underline'>
+              Tags
+              </p>
+				<div class="flex flex-row gap-2">
+          {
               tags?.map((tag) => (
                 <a
-                  href={`/tags/${tag}`}
-                  class='flex border-2 p-1 w-fit h-fit'
+                  href={`/blog/tags/${tag}`}
+                  class='flex border-2 rounded-md p-1 w-fit h-fit text-sm'
                 >
                   {tag}
                 </a>
               ))
             }
+        </div>
 			</div>
           </div>
           <hr />
