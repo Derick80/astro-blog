@@ -7,7 +7,10 @@ import { CollectionEntry, getCollection } from 'astro:content';
 
 type Props = CollectionEntry<'projects'>['data']
 
-const projects = (await getCollection('projects')).map((project) => project.data);
+const projects = (await getCollection('projects')).map((project) => project.data).sort((a, b) => {
+    return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+});
+
 ---
 
 <!DOCTYPE html>
