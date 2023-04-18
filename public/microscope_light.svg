@@ -1,20 +1,7 @@
----
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import BaseLayout from '../components/BaseLayout.astro';
-const pageTitle = 'home';
-
-
-
----
-<BaseLayout
-    pageTitle={pageTitle}
->
-<div class="flex flex-col items-center w-24 h-24">
-		<svg version="1.1"
-	class="fill-current stroke-current text-black dark:text-white"
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	class="fill-white"
 id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 216.4 252.2"  xml:space="preserve">
 <style type="text/css">
@@ -46,11 +33,3 @@ id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1
 <rect x="77.6" y="239" class="st1" width="104.8" height="3.2"/>
 <circle class="st3" cx="145.6" cy="61.9" r="19.5"/>
 </svg>
-</div>
-
-
-
-
-
-
-</BaseLayout>
