@@ -1,7 +1,8 @@
 ---
 title: 'What I am studying'
 description: 'My current future plans of study for career and life'
-pubDate: 'April 10th 2023'
+pubDate: 'April 17 2023'
+heroImage: './yookoso.webp'
 tags: ['Study', 'Coding', 'Genetics']
 
 ---

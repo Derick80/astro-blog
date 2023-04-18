@@ -1,7 +1,7 @@
 ---
 title: 'DIY Audio Player'
 description: 'DIY Audio Player Planning'
-pubDate: 'April 20, 2023'
+pubDate: 'April 10, 2023'
 heroImage: '/ipodjpg.jpeg'
 tags: ['DIY', 'Audio', 'Coding']
 ---

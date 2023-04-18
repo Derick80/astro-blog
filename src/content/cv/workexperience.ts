@@ -2,10 +2,16 @@ export const work_experience = [
   {
     id: 1,
     institution: 'Tempus Labs',
-    startDate: 'June 2017',
+    startDate: 'March 2019',
     endDate: 'Present',
     title: 'Senior Clinical Scientist',
     duties: [
+      {
+        duty:'Created and maintained cross-instituional SOPs for variant classification'
+      },
+      {
+        duty: 'Identified and implemented new worlflows to harmonize variant classification across multiple institutions'
+      },
       {
         duty: 'Designed and implemented reportable bed file to report only specific genomic regions for Tempus xT and xF assays'
       },

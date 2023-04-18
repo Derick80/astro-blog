@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../components/BaseLayout.astro';
 
 type Props = CollectionEntry<'projects'>['data']
 
@@ -13,26 +14,14 @@ const projects = (await getCollection('projects')).map((project) => project.data
 
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body
-		class="dark:bg-slate-800 text-black dark:text-white"
-	>
-		<Header title={SITE_TITLE} />
-		<main
-		class="flex flex-grow h-screen flex-col
-        w-full
-        items-center  text-center"
-		>
+<BaseLayout >
 <ul class="flex  flex-col items-center">
     {projects.map((project) => (
-        <li class="flex flex-col border-2 w-full gap-2 mb-2 items-start">
+        <div class="flex flex-col border-2 w-full gap-2 mb-2 items-start">
             <a href={project.projectLink}
             rel="noopener noreferrer"
-            class="text-2xl underline ">{project.title}</a>
+            class="text-2xl text-black dark:text-white ">{project.title} </a>
+
  <img
                 src={project.heroImage}
                 alt={project.title}
@@ -53,7 +42,7 @@ const projects = (await getCollection('projects')).map((project) => project.data
                <p
                class="flex flex-row gap-2"
                >
-                 {project.tags.map((tag) => (
+                 {project.tags.map((tag:string) => (
                     <span class="p-1 text-xs border w-fit h-fit text-gray-500">{tag}</span>
                 ))}
                 </p>
@@ -103,7 +92,4 @@ const projects = (await getCollection('projects')).map((project) => project.data
     ))}
 </ul>
 
-		</main>
-		<Footer />
-	</body>
-</html>
+		</BaseLayout>

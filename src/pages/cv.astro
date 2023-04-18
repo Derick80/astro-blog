@@ -8,6 +8,7 @@ import {skills} from '../content/cv/skills'
 import BaseHead from '../components/BaseHead.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 import Header from '../components/Header.astro'
+import BaseLayout from '../components/BaseLayout.astro'
 const posts = (await getCollection('blog')).map((post) => {
   return {
     ...post,
@@ -16,18 +17,7 @@ const posts = (await getCollection('blog')).map((post) => {
 })
 ---
 
-<!DOCTYPE html>
-<html lang='en'>
-  <head>
-
-   <BaseHead
-      title={SITE_TITLE}
-      description={SITE_DESCRIPTION}
-    />
-  </head>
-  <body class='dark:bg-slate-800 text-black dark:text-white'>
-    <Header />
-    <main class='flex flex-grow h-screen md:justify-center'>
+<BaseLayout>
       <section
         class="flex flex-col items-center w-full max-w-2xl p-4"
       >
@@ -150,9 +140,7 @@ Clinical scientist keen on using my expertise in clinical genetics and programmi
 
         </div>
       </section>
-    </main>
-  </body>
-</html>
+    </BaseLayout>
 
 
 
