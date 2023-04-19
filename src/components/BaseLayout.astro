@@ -17,9 +17,11 @@ class="dark:bg-slate-800 text-black dark:text-white"  >
  <Header />
 
  	<main
-		class="flex flex-grow h-screen flex-col"
+		class="flex flex-grow h-screen flex-col justify-start gap-4 items-center"
 		>
-    <h1>{pageTitle}</h1>
+    <h1
+    class="text-3xl font-bold text-center text-black dark:text-white"
+    >{pageTitle}</h1>
     <slot />
 
 
