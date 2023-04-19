@@ -1,18 +1,18 @@
 ---
-title: 'Kanazawa 金沢'
-description: 'Reflections and thoughts on my time in KanaZawa'
-pubDate: 'April 20, 2023'
-heroImage: '/derickJapan.jpg'
-tags: ['Travel', 'Japan', 'Culture', 'Food']
+title: "Kanazawa 金沢"
+description: "Reflections and thoughts on my time in KanaZawa"
+pubDate: "April 20, 2023"
+heroImage: "/derickJapan.jpg"
+tags: ["Travel", "Japan", "Culture", "Food"]
 meta:
- - name: 'og:image'
- - content: 'https://derick.dev/derickJapan.jpg'
-  - name: 'twitter:image'
-  - content: 'https://derick.dev/derickJapan.jpg'
-  - name: 'twitter:card'
-  - content: 'summary_large_image'
-  - name: 'twitter:site'
-  - content: '@GeneticsStar'
+  - name: "og:image"
+  - content: "https://derick.dev/derickJapan.jpg"
+  - name: "twitter:image"
+  - content: "https://derick.dev/derickJapan.jpg"
+  - name: "twitter:card"
+  - content: "summary_large_image"
+  - name: "twitter:site"
+  - content: "@GeneticsStar"
 ---
 
 # My Trip to Japan
