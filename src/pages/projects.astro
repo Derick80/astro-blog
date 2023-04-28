@@ -38,7 +38,7 @@ const projects = (await getCollection('projects')).map((project) => project.data
              >{project.description}
 
                 </p>
-                <h3 class="text-sm underline">Technologies:</h3>
+                <h3 class="text-sm dark:text-slate-50 underline">Technologies:</h3>
                <p
                class="flex flex-row gap-2"
                >
@@ -46,7 +46,7 @@ const projects = (await getCollection('projects')).map((project) => project.data
                     <span class="p-1 text-xs border w-fit h-fit text-gray-500">{tag}</span>
                 ))}
                 </p>
-                <h3 class="text-sm underline">Implementations:</h3>
+                <h3 class="text-sm underline dark:text-slate-50">Implementations:</h3>
                 {project.implementations.map((
                     item: string
                 )=> (

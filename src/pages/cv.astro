@@ -15,6 +15,7 @@ const posts = (await getCollection('blog')).map((post) => {
     url: `/posts/${post.slug}`
   }
 })
+
 ---
 
 <BaseLayout>
@@ -30,7 +31,7 @@ const posts = (await getCollection('blog')).map((post) => {
           <p
             class="text-base italic"
           >
-Clinical scientist keen on using my expertise in clinical genetics and programming skills to lead a team of scientists and developers.
+          I am a senior clinical scientist keen on using my expertise in variant curation and analysis to help patients and families. I am also a software developer focused on learning fundamental web technologies such as JavaScript, TypeScript, and React. I am open to new opportunities in the field of variant curation and analysis with a focus on developing web applications to work with genomic data
           </p>
         </div>
         <div
@@ -52,14 +53,19 @@ Clinical scientist keen on using my expertise in clinical genetics and programmi
                   <p class='text-base font-bold'>
                     {job.startDate} - {job.endDate}
                   </p>
+                  <button class='text-base font-bold bg-teal-400 text-white rounded-md p-1'>
+                    stuyff
+                  </button>
                 </div>
                 <ul
                 class='list-disc'
                 >
                   {job.duties.map((duty) => (
                     <li
-                    class='w-full text-sm list-di '
-                    >{duty.duty}</li>
+                    class='w-full text-sm list-disc text-teal-400 '
+                    >
+                    <span class="text-xs leading-5 text-slate-900 dark:text-slate-50">{duty.duty}</span>
+                    </li>
                   ))}
                 </ul>
 

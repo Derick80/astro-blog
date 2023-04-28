@@ -8,6 +8,9 @@ pubDate: 'April 2023'
 implementations: ['SearchParams', 'useFetcher', 'Nested Routing']
 tags: ['Coding', 'Remix-run', 'Typescript', 'Blog', 'Prisma', 'Tailwindcss']
 ---
-
-### STuff here
+<h3 
+    class='text-white'
+> 
+    A simple todo application created with Remix    
+    
 - Put more things here
