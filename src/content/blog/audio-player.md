@@ -5,8 +5,7 @@ pubDate: 'April 10, 2023'
 heroImage: '/ipodjpg.jpeg'
 tags: ['DIY', 'Audio', 'Coding']
 ---
-
-## Introduction
+ ### Introduction
 
 I want to build a DIY audio player. Think iPod but still cool. I have an extensive collection of music and I want to be able to listen to it on the go. I also want to learn more about electronics and coding.
 
