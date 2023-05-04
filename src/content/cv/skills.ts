@@ -1,33 +1,66 @@
 export const skills = [
   {
-    skill: 'Disease Curation'
+    skill: "Disease Curation",
   },
   {
-    skill: 'Variant Analysis'
+    skill: "Variant Analysis",
   },
 
   {
-    skill: 'Variant Curation'
+    skill: "Variant Curation",
   },
   {
-    skill: 'Variant Classification'
+    skill: "Variant Classification",
   },
   {
-    skill: 'Population Databases'
+    skill: "FDA Submissions",
   },
   {
-    skill: 'ClinVar'
+    skill: "In Silco Analysis",
   },
   {
-    skill: 'R Language'
+    skill: "Family Studies",
   },
   {
-    skill: 'JavaScript'
+    skill: "Population Databases",
   },
   {
-    skill: 'TypeScript'
+    skill: "ClinVar",
   },
   {
-    skill: 'Python'
-  }
-]
+    skill: "R Language",
+  },
+  {
+    skill: "JavaScript",
+  },
+  {
+    skill: "TypeScript",
+  },
+  {
+    skill: "Python",
+  },
+  {
+    skill: "HTML",
+  },
+  {
+    skill: "CSS",
+  },
+  {
+    skill: "GitHub",
+  },
+  {
+    skill: "Regex",
+  },
+  {
+    skill: "Data Wrangling",
+  },
+  {
+    skill: "Data Visualization",
+  },
+  {
+    skill: "Data Analysis",
+  },
+  {
+    skill: "Cloud Computing",
+  },
+];

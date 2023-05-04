@@ -1,19 +1,19 @@
 ---
-title: 'DIY Audio Player'
-description: 'DIY Audio Player Planning'
-pubDate: 'April 10, 2023'
-heroImage: '/ipodjpg.jpeg'
-tags: ['DIY', 'Audio', 'Coding']
+title: "DIY Audio Player"
+description: "DIY Audio Player Planning"
+pubDate: "April 10, 2023"
+heroImage: "/ipodjpg.jpeg"
+tags: ["DIY", "Audio", "Coding"]
 ---
- ### Introduction
+
+### Introduction
 
 I want to build a DIY audio player. Think iPod but still cool. I have an extensive collection of music and I want to be able to listen to it on the go. I also want to learn more about electronics and coding.
 
- I asked ChatGPT for help with this and it suggested the following:
+I asked ChatGPT for help with this and it suggested the following:
 
 Choose the hardware components: The first step is to choose the hardware components that you will use to build your iPod. This includes a circuit board, display screen, battery, storage drive, audio codec, and other necessary components. You may also need to purchase special tools and equipment, such as a soldering iron, multimeter, and wire strippers.
 
-I asked ChatGPT which audio codec to use with my collection and it was suggested to use Ogg Vorbis or Opus.  So obviously, I asked which one is better and here's what ChatGPT said:
+I asked ChatGPT which audio codec to use with my collection and it was suggested to use Ogg Vorbis or Opus. So obviously, I asked which one is better and here's what ChatGPT said:
 
 Ogg Vorbis is a well-established codec that has been around for many years. It is a free and open-source codec that offers high-quality audio at lower bit rates than other codecs such as MP3. It is compatible with a wide range of devices and media players and is a popular choice among audiophiles and music enthusiasts.
-
