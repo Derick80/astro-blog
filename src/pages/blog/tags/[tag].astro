@@ -1,74 +1,72 @@
 ---
-import  { CollectionEntry, getCollection } from 'astro:content'
-import type { InferGetStaticParamsType, InferGetStaticPropsType } from 'astro'
-import BaseLayout from '../../../components/BaseLayout.astro';
+import { CollectionEntry, getCollection } from "astro:content";
+import type { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
+import BaseLayout from "../../../components/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog');
-  const uniquetags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-  return uniquetags.map((tag)=>{
+  const allPosts = await getCollection("blog");
+  const uniquetags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+  return uniquetags.map((tag) => {
     return {
       params: {
         tag: tag,
-      }
-    }
-  })
-
-
+      },
+    };
+  });
 }
 
+const allPosts = await getCollection("blog");
 
- const allPosts = await getCollection('blog');
-
- console.log(allPosts,'allposts');
+console.log(allPosts, "allposts");
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
 const { tag } = Astro.params;
 const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag));
-console.log(filteredPosts, 'filteredPosts');
+console.log(filteredPosts, "filteredPosts");
 
 // const filteredPosts = posts.filter((post) => post.data.tags.includes(tag));
 // console.log(filteredPosts);
-const
-title = `BLOGTAGs`;
-
+const title = `BLOGTAGs`;
 ---
+
 <BaseLayout pageTitle={title}>
   <p>Posts tagged with {tag}</p>
-<ul>
-  {filteredPosts.map((post)=>
-
-   <div class='flex flex-col h-full w-full border p-1'>
-                <div class='flex flex-row gap-2 justify-between'>
-                  <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-
-                </div>
-                <div class='flex flex-row gap-2'>
-                  <div class='h-20 w-20'>
-                    {post.data.heroImage && (
-                      <img
-                        src={post.data.heroImage}
-                        alt={post.data.title}
-                        class='object-scale-down h-full w-full'
-                      />
-                    )}
-                  </div>
-                  <div class='flex flex-col gap-2'>
-                    {post.data.description}
-                    <div class='flex flex-row gap-2'>
-                      {post.data.tags.map((tag) => (
-                        <a
-                          href={`/blog/tags/${tag}/`}
-                          class=' border-2 p-1 w-fit text-xs'
-                        >
-                          {tag}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <ul>
+    {
+      filteredPosts.map((post) => (
+        <div class="flex h-full w-full flex-col border p-1">
+          <div class="flex flex-row justify-between gap-2">
+            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+          </div>
+          <div class="flex flex-row gap-2">
+            <div class="h-20 w-20">
+              {post.data.heroImage && (
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                  class="h-full w-full object-scale-down"
+                />
               )}
-</ul>
+            </div>
+            <div class="flex flex-col gap-2">
+              {post.data.description}
+              <div class="flex flex-row gap-2">
+                {post.data.tags.map((tag) => (
+                  <a
+                    href={`/blog/tags/${tag}/`}
+                    class=" w-fit border-2 p-1 text-xs"
+                  >
+                    {tag}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </ul>
 </BaseLayout>

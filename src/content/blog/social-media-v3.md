@@ -1,0 +1,38 @@
+---
+title: "Social Media App V3"
+description: "Social Media App V3 Explanation"
+pubDate: "May 4, 2023"
+heroImage: "/smaV3.png"
+tags: ["Typescript", "Remix-run", "Coding"]
+---
+
+### Introduction
+
+This is a long post!
+
+My primary learning project has been to design and create a social media app from scratch. I believe it has been nearly a year since I started V1 of the social media. So why am I writing about *Version 3*? Well, I have been learning a lot of Typescript and using Remix-run to build websites so what started off as a single effort soon evolved into a multi-version project. Today, I'm going to recap the journey so far and explain what I've learned along the way.
+
+### Version 1
+
+The first version of the social media app was built with similar technologies but with far less knowledge than I have now.
+
+My CSS and Javascript/Typescript was especially lacking back in the begining. For the most part I don't believe this held me back and I think the site is generally usable. I implemented user login and registration, a feed of posts, an about page and the ability for me to upload images to Amazon S3. I also implemented a few other features like allowing users to favorite and like posts. At this stage of the project I was heavily borrowing open-source code to get me going. I deployed <https://derickcurtis.com/> on Vercel and set up a postgres database with Cockroachlabs.
+
+### Version 2
+
+More recently, at <https://derickhoskinson.com> (Vercel outtage at the time of this post) I deployed a newer version of the social media app. In this version I still relied heavily upon open-source code but I also made strides in writing my own code. I added social logins for Discord, Google, and Github. I fleshed out the about page a bit more, improved styling,  ..
+
+Once again, I deployed this app on Vercel with a Cockroachlabs database. One of the more interesting issues that I've had is a large first contentful paint which lasted anywhere from 5-10 seconds.  I believe this is due to the fact that I'm using a serverless database and the database is not always running. It was also during this time that I started working on another project with Astro (<https://cellularwind.com>)
+
+### Version 3
+
+Version 3 started off as a one off modification of my little starter template that I was using <https://github.com/Derick80/sonic-death>. I wanted to fix some of the problems I was having with user authentication. Basically, I wanted to remove Google and Github integration just for ease of development. Discord's auth process was easy and far more repeatable. I was also struggling with layouts so it was during a modification to the Sonic Death stack that I just happened to start coding my new layout and revisioning of the app. I was also messing around with Server Sent Events in Remix and wanted to include a small chat app inside the social media app. This is important because Vercel does not support websockets (or server sent events) so I had to look at another hosting provider. I chose Fly.io.
+
+### Incremental Improvements
+
+One of the more interesting developments during these projects was the improvement of my assets and their usage. Starting from almost nothing at all, using pictures from graduate school and google photos, to finally ending with a 'set' of photos that were optimized for the web and sized appropriately.
+
+### Conclusion
+
+
+To be honest I'm still not entirely happy with any of the social media apps I've created.

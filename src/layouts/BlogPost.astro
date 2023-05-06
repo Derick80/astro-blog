@@ -1,39 +1,35 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
-
-type Props = CollectionEntry<'blog'>['data']
+type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage, tags } =
-  Astro.props
+  Astro.props;
 
-  console.log(heroImage);
-
+console.log(heroImage);
 ---
 
-<html lang='en'>
+<html lang="en">
   <head>
-    <BaseHead
-      title={title}
-      description={description}
-    />
+    <BaseHead title={title} description={description} />
   </head>
 
-  <body class='flex flex-col dark:bg-slate-800 text-black dark:text-white'>
+  <body class="flex flex-col text-black dark:bg-slate-800 dark:text-white">
     <Header />
-    <div class='flex flex-row w-full text-black dark:text-white'>
-      <main class='flex-grow text-black dark:text-white'>
-        <article class='flex flex-col gap-4 p-4 text-black dark:text-white'>
-
-          <div class='flex flex-row gap-2 justify-between text-black dark:text-white'>
-            <h1 class='text-black dark:text-white title'>{title}</h1>
+    <div class="flex w-full flex-row text-black dark:text-white">
+      <main class="flex-grow text-black dark:text-white">
+        <article class="flex flex-col gap-4 p-4 text-black dark:text-white">
+          <div
+            class="flex flex-row justify-between gap-2 text-black dark:text-white"
+          >
+            <h1 class="title text-black dark:text-white">{title}</h1>
 
             {
               updatedDate && (
-                <div class='last-updated-on text-black dark:text-white'>
+                <div class="last-updated-on text-black dark:text-white">
                   Last updated on
                   {updatedDate}
                 </div>
@@ -41,44 +37,41 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
             }
           </div>
           <hr />
-          <div class='flex flex-row gap-2 items-center text-black dark:text-white'>
-			     {
-            heroImage && (
-             <div
-			 	class='w-24 h-24 '
-			 >
-				 <img
-				 class='w-full h-full object-contain'
-                // 		width={720}
-                // height={360}
-                src={heroImage}
-                alt='here is the post image'
-              />
-			  </div>
-            )
-          }
-            <div class='flex flex-col gap-2'>
-               <p class='text-sm text-gray-500 underline'>
-              Tags
-              </p>
-				<div class="flex flex-row gap-2">
-          {
-              tags?.map((tag) => (
-                <a
-                  href={`/blog/tags/${tag}`}
-                  class='flex border-2 rounded-md p-1 w-fit h-fit text-sm text-black dark:text-white'
-                >
-                  {tag}
-                </a>
-              ))
+          <div
+            class="flex flex-row items-center gap-2 text-black dark:text-white"
+          >
+            {
+              heroImage && (
+                <div class="h-24 w-24 ">
+                  <img
+                    class="h-full w-full object-contain"
+                    width={720}
+                    height={360}
+                    src={heroImage}
+                    alt="here is the post image"
+                  />
+                </div>
+              )
             }
-        </div>
-			</div>
+            <div class="flex flex-col gap-2">
+              <p class="text-sm text-gray-500 underline">Tags</p>
+              <div class="flex flex-row gap-2">
+                {
+                  tags?.map((tag) => (
+                    <a
+                      href={`/blog/tags/${tag}`}
+                      class="flex h-fit w-fit rounded-md border-2 p-1 text-sm text-black dark:text-white"
+                    >
+                      {tag}
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
           </div>
           <hr />
           <slot
-          class='prose prose-stone prose-sm sm:prose lg:prose-lg xl:prose-2xl text-black dark:text-white'
-
+            class="prose prose-stone prose-sm sm:prose lg:prose-lg xl:prose-2xl text-black dark:text-white"
           />
         </article>
       </main>

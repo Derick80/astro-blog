@@ -49,4 +49,5 @@ The beautiful landscapes: Japan is known for its stunning natural beauty, from t
 - The art and culture: Japan has a rich artistic and cultural heritage, from ancient temples and shrines to modern art museums. You can talk about some of the art and cultural experiences that you had during your trip.
 
 Remember to include pictures and anecdotes to make your blog post more engaging and shareable.
+
 </p>
