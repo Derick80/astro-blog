@@ -1,0 +1,35 @@
+---
+title: "React Select Component"
+description: "Creating a reusable select component for my React projects"
+pubDate: "May 6, 2023"
+heroImage: "/selectcomponent.png"
+tags: ["Typescript", "Coding", "React"]
+---
+
+### Introduction
+
+I've been working on a few projects lately that have required a select component. I really like radix-ui components but for my social media sites my posts required a multi-select option. Mantine has a nice functional select component but I want to move away from using any third party components that rely on a a style provider or CSS-in-JS as they do not render on the server and often cause a flash of unstyled content. So I decided to create my own select component.
+
+### Research
+
+This isn't the first time I tried to create my own select component. Everything I tried worked pretty well for a novel use case where the content you were generating was entirely new. However, using a select component to edit existing data was a bit more challenging. I needed to be able to select multiple options, modify the options that were already selected, select additional options to add and be able to use during form submission.
+
+My research identified one [primary article](https://github.com/WebDevSimplified/react-select
+) that I tried to build a component with but I had difficulties with implementing state management and form submission. I also wanted to use Typescript and I was having a hard time getting the types to work correctly. That said, I did come back to this article later for some technical details.
+
+### The Component
+
+The base component is shown here. It is a simple select component that takes in an array of all options and an array of selected options which can be an empty array.
+![base component](https://res.cloudinary.com/dch-photo/image/upload/v1683399555/cellularwind/baseSelect_r7cwiv.png)
+I added two state variables and a ref to the component to help close the dropdown menu using the escape key or by clicking the chevron icon.
+![statevariables](https://res.cloudinary.com/dch-photo/image/upload/v1683400568/cellularwind/statevariables_upci4b.png)
+ Then I used a third state variable to track the selected options and a handler function to update the selected options.
+![selectedoptions](https://res.cloudinary.com/dch-photo/image/upload/v1683400568/cellularwind/selectHandler_rjnr48.png)
+I added a useEffect hook to close the dropdown menu with the escape key.
+![useEffect](https://res.cloudinary.com/dch-photo/image/upload/v1683400568/cellularwind/keyboardhandler_kw1y9a.png)
+Finally, here's the JSX for the component.
+![jsx](https://res.cloudinary.com/dch-photo/image/upload/v1683400895/cellularwind/return_kosgfo.png)
+
+### Conclusion
+
+I fought with this component for a while. I had a difficult time getting the dropdown menu to open directly below the selected options. Thankfully, I have been using Remix-run for over a year now so incorporating a hidden form input was pretty intuitive.
