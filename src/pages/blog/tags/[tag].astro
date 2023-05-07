@@ -34,10 +34,12 @@ const title = `BLOGTAGs`;
 
 <BaseLayout pageTitle={title}>
   <p>Posts tagged with {tag}</p>
-  <ul>
+  <ul
+    class="flex flex-col gap-2"
+  >
     {
       filteredPosts.map((post) => (
-        <div class="flex h-full w-full flex-col border p-1">
+        <div class="flex w-full flex-col border p-1">
           <div class="flex flex-row justify-between gap-2">
             <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
           </div>
