@@ -1,0 +1,18 @@
+---
+title: "ACMG Variant Calculator"
+description: "Creating a Variant Calculator Remix-run"
+heroImage: "/acmgsite.png"
+pubDate: "June 1, 2023"
+tags: ["Remix", "Coding", "Typescript", "Prisma", "Projects"]
+---
+I am an experienced clinical geneticist who has delved into the world of coding for over a year now. During this time, I have successfully deployed several personal websites. However, I wanted to take on a more ambitious project with a scientific focus.
+
+As part of my daily work, I deal with DNA variants and their potential association with diseases. In 2015, the American College of Medical Genetics introduced groundbreaking guidelines on how to evaluate evidence and determine whether a specific variant causes disease or not. This was a major milestone in our field. While the guidelines themselves are not qualitative, a recent publication introduced a point-based scoring system using Bayesian analysis.
+
+For my latest project, I took inspiration from the ACMG guidelines and adapted them into a web-based app. Existing online apps in this domain suffer from various issues, such as enabling double scoring in certain evidence types when it should not be allowed, being outdated, or lacking a comprehensive point-based system.
+
+My goal was to create a proof of concept using TypeScript and Remix, combining them to develop a robust application. Although my ultimate vision involves simulating real input from a processed VCF file, incorporating auto-classification capabilities and expert panel guidelines for certain genes. For now, I invite you to explore the current version of the app at https://www.variantalleles.com/. Enjoy the experience!
+
+
+
+
