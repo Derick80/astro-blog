@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import { GitHubLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 const pageTitle = "Home Page";
 ---
 
@@ -9,11 +10,12 @@ const pageTitle = "Home Page";
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/BrandIcon.ico" />
+    <link rel='alternate' type='application/rss+xml' title='RSS Feed' href='/rss.xml' />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class="text-black dark:bg-slate-800 dark:text-white">
+  <body class="text-black dark:bg-slate-800 dark:text-white w-full mx-auto">
     <Header />
 
     <main
@@ -21,6 +23,26 @@ const pageTitle = "Home Page";
     >
       <slot />
     </main>
+    <footer
+      class="flex flex-row items-center justify-center gap-4 p-4"
+    >
+    <a href='https://github.com/Derick80'
+    rel="no-referrer noopener"
+    target="_blank"
+    rel="noopener"
+    >
+    <GitHubLogoIcon />
+  </a>
+      <a href="rss.xml"><img src="rss.webp" alt="Subscribe to My Website"
+      class="w-3 h-3"
+        ></a>
+        <a href="https://twitter.com/GeneticsStar"
+        rel="no-referrer noopener"
+        target="_blank"
+        >
+      <TwitterLogoIcon />
+      </a>
+    </footer>
 
     <script></script>
   </body>
