@@ -22,7 +22,7 @@ export default function AccordianTrigger(props: Props) {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div className="flex flex-col rounded-md bg-white/5 ">
+    <div className="flex flex-col rounded-md">
       <div className="flex flex-row items-center justify-between text-xs">
         <p className="flex flex-shrink px-1 text-xs italic">{job.title}</p>
 
