@@ -10,6 +10,5 @@ import netlify from "@astrojs/netlify/functions";
 export default defineConfig({
   site: "https://cellularwind.com/",
   integrations: [mdx(), sitemap(), tailwind(), react()],
-  output: "server",
-  adapter: netlify()
+
 });
