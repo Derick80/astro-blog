@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import BaseLayout from "../components/BaseLayout.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -11,16 +12,10 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
 
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-  </head>
-
-  <body class="flex flex-col text-black dark:bg-slate-800 dark:text-white">
-    <Header />
-    <div class="flex w-full flex-row text-black dark:text-white">
-      <main class="flex-grow text-black dark:text-white">
-        <article class="flex flex-col gap-4 p-4 text-black dark:text-white">
+<BaseLayout title={title} description={description}
+  pageTitle={title}
+>
+        <article class="flex  flex-col gap-4 p-4 text-black dark:text-white w-full">
           <div
             class="flex flex-row justify-between gap-2 text-black dark:text-white"
           >
@@ -37,11 +32,11 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
           </div>
           <hr />
           <div
-            class="flex flex-row items-center gap-2 text-black dark:text-white"
+            class="flex flex-col items-center gap-2 text-black dark:text-white"
           >
             {
               heroImage && (
-                <div class="h-24 w-24 ">
+                <div class="">
                   <img
                     class="h-full w-full object-contain"
                     width={720}
@@ -73,8 +68,5 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
             class="prose prose-stone prose-sm sm:prose lg:prose-lg xl:prose-2xl text-black dark:text-white"
           />
         </article>
-      </main>
-    </div>
-    <Footer />
-  </body>
-</html>
+      </BaseLayout>
+      

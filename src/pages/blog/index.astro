@@ -1,7 +1,6 @@
 ---
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../components/BaseLayout.astro";
@@ -12,14 +11,13 @@ const posts = (await getCollection("blog")).sort(
 
 const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
 
-const pageTitle = "Blog";
-console.log(tags, "tags");
+const pageTitle = "Blog Posts";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 
-    <main class="flex h-screen flex-grow">
-      <section class="flex flex-col gap-2">
+    <section class="flex flex-col gap-2 w-full items-center">
+      <h2>Blog Post Categories</h2>
         <div class="mb-4 flex flex-wrap gap-2 text-xs">
           {
             tags.map((tag) => (
@@ -32,33 +30,36 @@ console.log(tags, "tags");
             ))
           }
         </div>
-        <div class="flex flex-col gap-4 text-black dark:text-white">
+        <div class="flex flex-col gap-4 text-black dark:text-white w-full items-center">
           {
             posts.map((post) => (
-              <div class="flex h-full w-full flex-col border p-1">
-                <div class="flex flex-row justify-between gap-2">
+              <div class="flex h-full w-full flex-col shadow-md rounded-md shadow-black p-1 md:p-2 prose dark:prose-invert md:not-prose">
+                <div class="flex flex-row justify-between gap-2 text-xl">
                   <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
                 </div>
-                <div class="flex flex-row gap-2">
-                  <div class="h-20 w-20">
+                <div class="flex flex-row gap-2 w-full items-start">
+                 
                     {post.data.heroImage && (
+                       <div class="w-1/2">
                       <img
                         src={post.data.heroImage}
                         alt={post.data.title}
                         class="h-full w-full object-scale-down"
                       />
+                      </div>
                     )}
-                  </div>
-                  <div class="flex flex-col gap-2">
-                    {post.data.description}
+                  
+                  <div class="flex flex-col gap-1 md:gap-2 w-1/2">
+                    <p
+                    class="text-sm">{post.data.description}</p>
                     <div class="flex flex-row gap-2">
                       <div class="flex flex-col gap-2">
-                        <p class="text-sm text-gray-500 underline">Tags</p>
-                        <div class="flex flex-row gap-2">
+                        <p class="text-sm underline">Tags</p>
+                        <div class="flex flex-row gap-2 md:gap-2 flex-wrap">
                           {post.data.tags?.map((tag) => (
                             <a
                               href={`/blog/tags/${tag}`}
-                              class="flex h-fit w-fit rounded-md border-2 p-1 text-sm text-black dark:text-white"
+                              class="flex h-fit w-fit rounded-md border-2 p-1 text-xs text-black dark:text-white"
                             >
                               {tag}
                             </a>
@@ -73,6 +74,4 @@ console.log(tags, "tags");
           }
         </div>
       </section>
-    </main>
-    <Footer />
   </BaseLayout>
