@@ -19,11 +19,11 @@ export async function getStaticPaths() {
 
 const allPosts = await getCollection("blog");
 
-console.log(allPosts, "allposts");
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
 const { tag } = Astro.params;
+if(!tag) throw new Error("No tag provided");
 const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag));
 console.log(filteredPosts, "filteredPosts");
 
