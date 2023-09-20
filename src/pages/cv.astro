@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { pubs } from "../../src/content/cv/pubs";
+import { pubs } from "../content/cv/pubs";
 import { work_experience } from "../content/cv/workexperience";
 import Layout from "../layouts/BlogPost.astro";
 import { education } from "../content/cv/education";
@@ -127,3 +127,4 @@ const posts = (await getCollection("blog")).map((post) => {
     </div>
   </section>
 </BaseLayout>
+../content/cv/_education../content/cv/_pubs../content/cv/education

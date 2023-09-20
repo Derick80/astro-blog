@@ -1,28 +1,38 @@
 ---
+import { GitHubLogoIcon, LinkedInLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import HeaderLink from "./HeaderLink.astro";
-const today = new Date();
 ---
 
-<footer class="p-6 text-center text-black dark:text-white">
+<footer 
+      class="flex flex-row items-center justify-center gap-4 p-4"
+>
   <HeaderLink
     class="text-black dark:text-white"
     href="https://github.com/Derick80"
     target="_blank"
   >
-    GitHub
+  <GitHubLogoIcon />
   </HeaderLink>
   <HeaderLink
     class="text-black dark:text-white"
     href="https://www.linkedin.com/in/dhoskinson/"
     target="_blank"
   >
-    LinkedIn
+    <LinkedInLogoIcon />
   </HeaderLink>
   <HeaderLink
     class="text-black dark:text-white"
     href="https://twitter.com/GeneticsStar"
     target="_blank"
   >
-    Twitter
+    <TwitterLogoIcon />
   </HeaderLink>
+  <a href="rss.xml"><img src="/rss.webp" alt="Subscribe to My Website"
+      class="w-3 h-3"
+        ></a>
+        <a href="https://twitter.com/GeneticsStar"
+        rel="no-referrer noopener"
+        target="_blank"
+        >
 </footer>
+

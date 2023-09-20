@@ -5,17 +5,64 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../components/BaseLayout.astro";
 const pageTitle = "home";
+import { getCollection } from "astro:content";
+
+const featuredPosts = (await getCollection("blog")).filter((post) => post.data.featured === true);
+const posts = featuredPosts.sort((a, b) => 
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf() )
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="flex flex-col items-center gap-2">
-    <p class="text-2xl font-bold text-black dark:text-white">
-     
-    </p>
-    <p class="text-2xl font-bold text-black dark:text-white">
-      This site is best in light mode until I figure out how to fix some bugs
-    </p>
+ 
+     <div class="flex flex-col gap-4 text-black dark:text-white">
+          {
+            posts.map((post) => (
+              <div class="flex h-full w-full flex-col shadow-md rounded-md shadow-black p-1 md:p-2 prose dark:prose-invert">
+                <div class="flex flex-row justify-between gap-2 text-xl">
+                  <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                </div>
+                <div class="flex flex-row gap-2 w-full items-start">
+                 
+                    {post.data.heroImage && (
+                       <div class="w-1/2">
+                      <img
+                        src={post.data.heroImage}
+                        alt={post.data.title}
+                        class="h-full w-full object-scale-down"
+                      />
+                      
+                      </div>
+                    )}
+          
+                  
+                  <div class="flex flex-col gap-1 md:gap-2 w-1/2">
+                    <p
+                    class="text-sm">{post.data.description}</p>
+                    <div class="flex flex-row gap-2">
+                      <div class="flex flex-col gap-2">
+                        <p class="text-sm underline">Tags</p>
+                        <div class="flex flex-row gap-2 md:gap-2 flex-wrap">
+                          {post.data.tags?.map((tag) => (
+                            <a
+                              href={`/blog/tags/${tag}`}
+                              class="flex h-fit w-fit rounded-md border-2 p-1 text-xs text-black dark:text-white"
+                            >
+                              {tag}
+                            </a>
+                          ))}
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
     <div class="flex h-24 w-24 flex-col items-center">
+
+      
       <svg
         version="1.1"
         class="fill-current stroke-current text-black dark:text-white"
@@ -87,5 +134,5 @@ const pageTitle = "home";
         <circle class="st3" cx="145.6" cy="61.9" r="19.5"></circle>
       </svg>
     </div>
-  </div>
+  
 </BaseLayout>
