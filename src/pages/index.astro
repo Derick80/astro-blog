@@ -42,7 +42,7 @@ const posts = featuredPosts.sort((a, b) =>
                       <div class="flex flex-col gap-2">
                         <p class="text-sm underline">Tags</p>
                         <div class="flex flex-row gap-2 md:gap-2 flex-wrap">
-                          {post.data.tags?.map((tag) => (
+                          {post.data?.tags?.map((tag) => (
                             <a
                               href={`/blog/tags/${tag}`}
                               class="flex h-fit w-fit rounded-md border-2 p-1 text-xs text-black dark:text-white"
