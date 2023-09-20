@@ -3,16 +3,23 @@ import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 import BaseLayout from "../../components/BaseLayout.astro";
 
-const {slug} = Astro.params;
-if(slug === undefined){
-  throw new Error("No slug provided");
-}
-const entry = await getEntry("blog", slug);
-if(entry === undefined){
- return Astro.redirect("/404");
+
+
+export async function getStaticProps({ params }) {
+  const entry = await getEntry("blog", params.slug);
+  return {
+    props: {
+      entry,
+    },
+  };
 }
 
-const {Content} = await entry.render()
+
+
+const { entry } = Astro.props.entry
+
+const {Content} = entry.data;
+
 ---
 
 <BlogPost {...entry.data}>
